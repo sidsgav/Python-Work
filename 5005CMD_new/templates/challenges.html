@@ -1,0 +1,79 @@
+<!-- Gavin's Code -->
+
+<!-- *Gavin begins coding here * -->
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conservation Challenges | Komodo Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> <!-- Path to sytlesheet I created for format + nice styling-->
+</head>
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="logo">🦎 Komodo Hub</a>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}">Home</a></li> <!-- Redirect for home page-->
+            <li><a href="{{ url_for('view_challenges') }}" class="active">Challenges</a></li> <!-- Redirect to challenges page-->
+            <li><a href="{{ url_for('view_leaderboard') }}">Leaderboard</a></li> <!-- Redirect to leaderboard page-->
+            <li><a href="{{ url_for('logout') }}" class="btn-secondary">Logout</a></li> <!-- Redirect to logout option-->
+        </ul>
+    </nav>
+
+    <!-- Conservation Challenges Section -->
+    <section class="challenges-container">
+        <h1>🌿 Conservation Challenges</h1>
+        <p>Participate in Komodo Hub's conservation challenges</p>
+
+        <!-- Loop through available conservation challenges -->
+        {% for challenge in challenges %}
+        <div class="challenge-card">
+            <h2>{{ challenge.title }}</h2> <!-- Title of the specfic challenge -->
+            <p>{{ challenge.description }}</p> <!-- Description of the specific challenge -->
+            <p><strong>Why it matters:</strong> {{ challenge.impact }}</p> <!-- Explanation of its impact -->
+            <p><strong>Deadline:</strong> {{ challenge.deadline.strftime('%d %B %Y') }}</p> <!-- Deadline for completion  - make believe date -->
+            <p><strong>Progress:</strong> {{ challenge.progress }}/{{ challenge.goal }} contributions</p> <!-- User's progress towards completion -->
+            
+            <form action="{{ url_for('submit_challenge', challenge_id=challenge.id) }}" method="post"> <!-- Form to submit a contribution towards the challenge -->
+                <label for="submission_text">Describe your contribution:</label>
+                <textarea name="submission_text" placeholder="e.g., 'Spotted 3 javan rhinos'" required></textarea> <!-- Something random -->
+                <button type="submit">Submit Contribution</button>
+            </form>
+        </div>
+        {% endfor %}
+    </section>
+
+    <section class="leaderboard-container"> <!-- Leaderboard section -->
+        <h1>🏆 Conservation Leaderboard</h1> <!-- Something interactive -->
+        <p>A thank you and appreciation to the top contributors dedicated to protecting Indonesia's wildlife.</p>
+        <table class="leaderboard-table"> <!-- Table displaying the top conservation contributors -->
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Username</th>
+                    <th>Contributions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in leaderboard %} <!-- Loop through-->
+                <tr>
+                    <td>#{{ loop.index }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.contributions }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Footer section -->
+    <footer>
+        <p>Komodo Hub. Protecting Indonesia's Wildlife Together.</p>
+    </footer>
+</body>
+</html>
+
+<!-- *Gavin stops coding here * -->

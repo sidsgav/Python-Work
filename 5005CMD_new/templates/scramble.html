@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Scramble Game</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/kubasCSS.css')}}">
+</head>
+<body>
+    <h1>Unscramble the word!</h1>
+    <p>The scrabmled word is: <strong>{{ scrambled_word }}</strong></p>
+    <form method="post">
+        <input type="text" name="guess" required>
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <p>{{ message }}</p>
+    <br>
+    {% if "Correct" in message%}
+    <form action="{{url_for('restart')}}" method="GET">
+        <button type="submit">Restart</button>
+    </form>
+    {% endif %}
+</body>
+</html>

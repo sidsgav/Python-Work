@@ -1,0 +1,82 @@
+<!-- Gavin's Code -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>    
+  <meta charset="UTF-8">
+  <title>Student Dashboard | Komodo Hub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <header class="dash-hero">
+      <div class="hero-content"> <!-- Content container, aligned both horizontally & vertically -->
+        <h1>🎓 Hello, {{ user.username }}!</h1> <!-- Welcomes user here by login details-->
+        <p>Your personalised conservation journey starts here.</p>
+        <button id="homeBtn">Back to Home</button> <!-- Home redirect option here -->
+    </div>
+    </div>
+  </header>
+
+  <!-- My fix - all dashboard cards are now wrapped in a single container for diaplay and access -->
+  <section class="dashboard-container">
+    <!-- Profile Customisation Card -->
+    <div class="dashboard-card">
+        <h2>🌿 Customise Your Profile</h2> <!-- In requirement section -->
+        <p>Show off your style with an avatar or theme!</p>
+        <button onclick="alert('Profile customisation coming soon!')">Edit Profile</button> <!-- Add Troy's code - reference his html page for redirect to page-->
+    </div>
+
+    <!-- Learning Progress Card -->
+    <div class="dashboard-card">
+        <h2>📚 Your Learning Progress</h2>
+        <p>Track quizzes, assignments, and more.</p>
+        <button onclick="alert('Learning progress coming soon!')">View Progress</button> <!-- Add Aman's redirect to his code for this section -->
+    </div>
+
+    <!-- Report a Sighting Card -->
+    <div class="dashboard-card">
+        <h2>📍 Report a Sighting</h2>
+        <p>Help conservation efforts by reporting wildlife sightings.</p>
+        <button onclick="alert('Report a sighting feature coming soon!')">Report Now</button> <!-- Add Pradip's redirect here -->
+    </div>
+
+    <!-- Messaging Card for Interaction -->
+    <div class="dashboard-card">
+        <h2>💬 Messages</h2>
+        <p>Check your messages from teachers or classmates.</p>
+        <a href="{{ url_for('messages') }}" class="btn-auth">Go to Messages</a> <!-- I will do this bit soon-->
+    </div>
+
+<!-- Games & Quizzes Card -->
+<div class="dashboard-card">
+  <h2>🎮 Games & Quizzes</h2>
+  <p>Test your knowledge and have fun with these interactive activities!</p>
+  <a href="{{ url_for('scramble_game') }}" class="btn-auth">Word Scramble</a>
+  <a href="{{ url_for('quiz_game') }}" class="btn-auth">Quiz</a>
+  <a href="{{ url_for('hangman_game') }}" class="btn-auth">Hangman</a> <!-- Kuba's stuff-->
+</div>
+
+
+    <!-- Endangered Animals Card -->
+    <div class="dashboard-card">
+        <h2>🦎 Endangered Animals</h2>
+        <p>Learn more about Indonesia’s most endangered species.</p>
+        <button onclick="alert('Endangered Animals Info coming soon!')">Learn More</button> <!-- Add Pradip's + Aman's collective effort here - html return btw -->
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+      <a href="{{ url_for('logout') }}">Logout</a>
+  </footer>
+
+  <!-- Add redirect click here to home - have to do as render runs in Flaskand returns HTML to browser so need to do in client side with this script-->
+  <script>
+    document.getElementById("homeBtn").addEventListener("click", function() {
+      window.location.href = "{{ url_for('home') }}";  // Redirects to home page
+    });
+  </script>
+
+</body>
+</html>

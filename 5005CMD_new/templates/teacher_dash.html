@@ -1,0 +1,69 @@
+<!-- Gavin's Code -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+  <meta charset="UTF-8">
+  <title>Teacher Dashboard | Komodo Hub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <header class="dash-hero">
+    <div class="hero-content"> <!-- Content container, aligned both horizontally & vertically -->
+      <h1>👩‍🏫 Hello, {{ user.username }}!</h1> <!-- Welcomes teacher user by their login details-->
+      <p>Manage your classes, student progress, and more.</p>
+      <button id="homeBtn">Back to Home</button> <!-- The button to redirect back to the home page -->
+    </div>
+  </header>
+
+  <!-- Main container for the teacher dashboard cards which are the features -->
+  <section class="dashboard-container">
+
+    <!-- Manage Class Syllabus -->
+    <div class="dashboard-card">
+      <h2>📚 Manage Class Syllabus</h2>
+      <p>Update or create new modules for conservation lessons.</p>
+      <button onclick="alert('Manage Class Syllabus feature coming soon!')">Edit Syllabus</button>
+    </div>
+
+    <!-- Student Progress -->
+    <div class="dashboard-card">
+      <h2>🌍 Student Progress</h2>
+      <p>Track quizzes, assignments, and more.</p>
+      <button onclick="alert('Student progress feature coming soon!')">View Progress</button>
+    </div>
+
+    <!-- Report a Sighting (option available to teachers too) -->
+    <div class="dashboard-card">
+      <h2>📍 Report a Sighting</h2>
+      <p>Help conservation efforts by reporting wildlife sightings.</p>
+      <button onclick="alert('Report a sighting feature coming soon!')">Report Now</button>
+    </div>
+
+    <!-- Messages card for communication -->
+    <div class="dashboard-card">
+      <h2>💬 Messages</h2>
+      <p>Communicate with students and other teachers.</p>
+      <a href="{{ url_for('messages') }}" class="btn-auth">Go to Messages</a>
+    </div>
+
+    <!-- Endangered Animals -->
+    <div class="dashboard-card">
+      <h2>🦎 Endangered Animals</h2>
+      <p>Learn more about Indonesia’s most endangered species.</p>
+      <button onclick="alert('Endangered Animals Info coming soon!')">Learn More</button>
+    </div>
+  </section>
+
+  <footer>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </footer>
+
+  <!-- JavaScript to handle the "Back to Home" button click -->
+  <script>
+    document.getElementById("homeBtn").addEventListener("click", function() {
+      window.location.href = "{{ url_for('home') }}"; // Redirects the teacher back to the home page
+    });
+  </script>
+</body>
+</html>

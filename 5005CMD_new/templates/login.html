@@ -1,0 +1,50 @@
+<!-- Gavin's Code -->
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Komodo Hub</title> <!-- Page title for this box-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="login-body"> <!-- Link to my stylesheet - styles.css -->
+<a href="{{ url_for('home') }}" class="home-btn">🏠 Home</a> <!-- Home button for redirect -->
+
+
+    <div class="auth-container">
+        <div class="auth-box">
+            <h2>Login</h2>
+
+            <!-- Flash messages for login errors for user input val -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-messages">
+                        {% for category, message in messages %} <!-- For each message -->
+                            <div class="flash-message {{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                    {% set messages = [] %}
+                {% endif %}
+            {% endwith %}
+
+            <form action="{{ url_for('login') }}" method="POST"> <!-- Login form-->
+                <input type="text" id="username" name="username" placeholder="Enter your username" required autocomplete="username" required> <!-- Required fields-->
+                <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="current-password" required>  <!-- Required fields -->
+                
+                <label for="accountType">Select Account Type:</label> <!-- Account type dropdown when logging in -->
+                <select id="accountType" name="accountType" required>
+                    <option value="student">🎓 Student</option>
+                    <option value="teacher">👩‍🏫 Teacher</option>
+                    <option value="public">🌍 General User</option>
+                </select>
+
+                <button type="submit" class="btn-auth">Login</button>
+            </form>
+            <p>Don't have an account? <a href="{{ url_for('register') }}">Sign Up</a></p> <!-- Redirect to registrion if account True is False-->
+        </div>
+    </div>
+
+</body>
+</html>

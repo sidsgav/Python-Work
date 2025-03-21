@@ -1,0 +1,152 @@
+<!-- Gavin's Code -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komodo Hub | Home</title> <!-- Page title-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> <!-- Path to sytlesheet I created for format + nice styling-->
+</head>
+<body>
+
+<!-- Navigation bar -->
+<nav class="navbar">
+    <!-- Brand + logo area -->
+    <a href="{{ url_for('home') }}" class="logo">
+      🦎 Komodo Hub
+    </a>
+    
+    <!-- Navigation links -->
+    <ul class="nav-links">
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Programs ▼</a>
+        <div class="dropdown-content">
+          <a href="#">📚 Learning Materials</a>
+          <a href="#">🌍 Student Progress Report</a>
+          <a href="#">📍 Report a Sighting</a>
+          <a href="#">🎮 Interactive Games</a>
+          <a href="#">🔑 Secure Student Access</a>
+        </div>
+      </li>
+      <li><a href="{{ url_for('register') }}" class="btn-secondary">Register</a></li>
+      <li><a href="{{ url_for('login') }}" class="btn-secondary">Login</a></li>
+    </ul>
+  </nav>
+
+    <!-- Main 'hero' Section with background/ foreground image for display -->
+    <header class="hero">
+        <img src="{{ url_for('static', filename='images/javan_rhino.jpeg') }}" alt="Javan Rhino" class="hero-image">
+        <div class="hero-content">
+            <h2>Protect Indonesia’s Endangered Species</h2> <!-- Engaging headlines for users to interact-->
+            <p>Join our mission to save wildlife and involve communities in conservation efforts.</p>
+            <a href="{{ url_for('register') }}" class="btn-primary">Get Started</a> <!-- Sign up access - direct-->
+        </div>
+    </header>
+
+    <!-- About the system section -->
+    <section class="about-container"> 
+        <div class="about-box"> 
+            <h2>What is Komodo Hub?</h2>
+            <p>
+                Komodo Hub stands at the heart of a unique framework that is committed to supporting schools, communities, and 
+                conservationist in their goal to protect endangered species of Indonesia. Through the utilisation of technology and equipment 
+                whilst running education schooling and other interactive sessions in creative engagements, Komodo Hub is here to ensure 
+                that when it comes to saving the environment, we can all collectively do something about it. The platform also communicates
+                scientific findings to the world and it is clouded with all the necessary means in the form of digital content for learning 
+                conservation, initiative for conservation among other engaging resources in helping people to appreciate biodiversity. Quite notably, 
+                users such as students, teachers and the general public can analyse web based conservation data, get engaged in citizen science projects 
+                or even assist in biodiversity preservation by reporting to sightings of specific species during suitable periods or getting involved 
+                in mutual conservation schemes where animals are concerned. 
+                In an attempt to introduce some sense of responsibility and engagement, Komodo Hub promotes behavioral change, which is taking 
+                any positive steps aimed at protecting some most preserved ecosystems in Indonesia.
+            </p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-container">
+        <!-- Card 1: Profile or Registration CTA (Public View) -->
+        <div class="feature-card">
+          <h2>👤 Create Your Profile</h2>
+          <p>Join Komodo Hub and help protect Indonesia's wildlife.</p>
+          <a href="{{ url_for('register') }}" class="btn-auth">Register Now</a>
+        </div>
+    
+        <!-- Card 2: Digital Library -->
+        <div class="feature-card">
+          <h2>📖 Digital Library</h2>
+          <p>Explore a wealth of educational materials on conservation.</p>
+          <button onclick="alert('Digital Library info coming soon!')">Explore</button>
+        </div>
+    
+        <!-- Card 3: Report a Sighting -->
+        <div class="feature-card">
+          <h2>📍 Report a Sighting</h2>
+          <p>Play your part in conservation by reporting wildlife sightings.</p>
+          <button onclick="alert('Report a sighting feature coming soon!')">Report Now</button>
+        </div>
+    
+        <!-- Card 4: Games & Quizzes -->
+        <div class="feature-card">
+          <h2>🎮 Games & Quizzes</h2>
+          <p>Fun interactive learning activities for students and communities.</p>
+          <button onclick="alert('Interactive games coming soon!')">Play Now</button>
+        </div>
+    
+        <!-- Card 5: Endangered Animals -->
+        <div class="feature-card">
+          <h2>🦎 Endangered Animals</h2>
+          <p>Learn more about Indonesia’s most endangered species.</p>
+          <button onclick="alert('Endangered Animals Info coming soon!')">Learn More</button>
+        </div>
+    
+        <!-- Card 6: Secure Student Access -->
+        <div class="feature-card">
+          <h2>🔐 Secure Student Access</h2>
+          <p>Teachers can generate unique access codes for student security.</p>
+          <button onclick="alert('Secure Student Access coming soon!')">Access</button>
+        </div>
+    </section>
+
+    <!-- Login/Register section - container -->
+    <section class="auth-container">
+        <div class="auth-box">
+            <h2>Welcome Back</h2>
+            <p>Login to continue your conservation journey.</p> <!--Allows redirect to specified pages-->
+            <a href="{{ url_for('login') }}" class="btn-primary">Login</a>
+        </div>
+        <div class="auth-box">
+            <h2>Join Komodo Hub</h2> <!-- Title-->
+            <p>Register now and be a part of the largest conservation initiative.</p> <!-- Engaging text -->
+            <a href="{{ url_for('register') }}" class="btn-primary">Register</a>
+        </div>
+    </section>
+
+    <script>
+        /* This script basically checks that they are logged in or signed up before trying to access the featires pages */
+        var isLoggedIn = "{{ current_user.is_authenticated }}" === "True"; /* Checks here from var defined */
+        if (!isLoggedIn) {
+          var programLinks = document.querySelectorAll('.dropdown-content a'); /* Dropdown links here options */
+          programLinks.forEach(function(link) {
+            link.addEventListener('click', function(event) { /* Add action listener here for the click from user */
+              event.preventDefault();
+              var response = confirm("You must be logged in to access this feature.\n\nClick 'OK' to register, or 'Cancel' to log in.");
+              if (response) 
+              {
+                window.location.href = "{{ url_for('register') }}"; /* Re-direct to 'register' page */ 
+              } 
+              else 
+              {
+                window.location.href = "{{ url_for('login') }}"; /* Re-direct to 'login' page */ 
+              }
+            });
+          });
+        }
+      </script>
+      
+      
+</body>
+</html>

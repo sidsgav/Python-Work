@@ -1,0 +1,67 @@
+<!-- Gavin's Code -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Messages | Komodo Hub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> <!-- Link to my stylsheet where the styling happens -->
+</head>
+<body class="messages-body">
+  <nav class="navbar"> <!-- Navbar which provides quick naviagtion to redirects outlined here -->
+    <a href="{{ url_for('dashboard') }}" class="logo">Back to Dashboard</a> <!-- Option to go back to other features available -->
+    <ul class="nav-links">
+      <li><a href="{{ url_for('logout') }}">Logout</a></li> <!-- Logout redirect link -->
+    </ul>
+  </nav>
+
+  <main class="messages-container">
+    <aside class="messages-sidebar"> <!-- Left panel for lost of conversations [...]-->
+      <h2>Your Conversations</h2>
+      <ul class="conversation-list"> <!-- Convo threads passed from Flask route -->
+        {% for convo_user in conversations %}
+          <li> <!-- Ordered list needed here -->
+            <a href="{{ url_for('messages_with_user', user_id=convo_user.id) }}"> <!-- A route that filters messages between the user and selected recipient ]-->
+              {{ convo_user.username }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </aside>
+
+    <section class="messages-thread"> <!-- Right side panel - allows actual sending of messages[...] -->
+      <h2>Send a Message</h2>
+      <form action="{{ url_for('send_message') }}" method="POST" class="send-message-form"> <!-- Form to send new messages etc-->
+        <label for="recipient_id">Recipient:</label>
+        <select name="recipientID" id="recipient_id" required>
+          {% for user in all_users if user.id != current_user.id %} <!-- Loop over all users, removing current user to avoid sending messages to self-->
+            <option value="{{ user.id }}">{{ user.username }}</option>
+          {% endfor %}
+        </select>
+        <label for="content">Message:</label> <!-- Text-area for message content here -->
+        <textarea id="content" name="content" required></textarea>
+        <button type="submit" class="btn-auth">Send Message</button>
+      </form>
+
+      <h2>Message History</h2>
+      <div class="message-list"> <!-- Message lost container -->
+        {% for msg in messages %} <!-- Loop through to outline message type -->
+          <!-- Conditional classes for styling he messages whether they are outgoing or incoming -->
+          <div class="message-item 
+               {% if msg.senderID == current_user.id %} outgoing {% else %} incoming {% endif %}">
+            <p class="message-meta">
+              <strong>From:</strong> {{ msg.sender.username }} | 
+              <strong>To:</strong> {{ msg.recipient.username }} | 
+              <small>{{ msg.timestamp.strftime("%Y-%m-%d %H:%M") }}</small> <!-- Time represented nicely here -->
+            </p>
+            <p class="message-content">{{ msg.content }}</p>
+          </div>
+        {% else %}
+          <p>No messages to display.</p> <!-- Placeholder message for no messages path -->
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+</body>
+</html>

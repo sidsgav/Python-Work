@@ -1,0 +1,18 @@
+<!-- Kuba's Code-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/kubasCSS.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Completed! Here are your results:</h1>
+        <p><strong>{{ score }}</strong> out of <strong>{{ total }}</strong></p>
+        <a href="{{url_for('restart')}}"><button>Restart Quiz</button></a>
+    </div>
+</body>
+</html>

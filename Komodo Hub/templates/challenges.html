@@ -1,0 +1,57 @@
+<!-- Gavin's Code -->
+
+<!-- *Gavin begins coding here * -->
+
+<!-- UPDATE: Removed leaderboard from conservation challenges page and now have two seperate tabs with actual challenges now-->
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conservation Challenges | Komodo Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> <!-- Path to sytlesheet I created for format + nice styling-->
+</head>
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="logo">🦎 Komodo Hub</a>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}">Home</a></li> <!-- Redirect for home page-->
+            <li><a href="{{ url_for('view_challenges') }}" class="active">Challenges</a></li> <!-- Redirect to challenges page-->
+            <li><a href="{{ url_for('view_leaderboard') }}">Leaderboard</a></li> <!-- Redirect to leaderboard page-->
+            <li><a href="{{ url_for('logout') }}" class="btn-secondary">Logout</a></li> <!-- Redirect to logout option-->
+        </ul>
+    </nav>
+
+    <section class="challenges-container">
+        <h1>🌿 Conservation Challenges</h1>
+        <p>Take part in Komodo Hub's active conservation efforts below:</p>
+    
+        {% for challenge in challenges %}
+        <div class="challenge-card">
+            <h2>{{ challenge.titleOfChallenge }}</h2> <!-- Title of challenge from db too match -->
+        
+            <p><strong>Progress:</strong> {{ challenge.progress }} / {{ challenge.goal }} contributions</p>
+            
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: {{ (challenge.progress / challenge.goal * 100) | round(0) }}%;"></div> <!-- Progress bar for additions from users-->
+            </div>
+        
+            <!-- Participate Button -->
+            <form action="{{ url_for('submit_contribution', challengeID=challenge.id) }}" method="post"> <!-- Participate in button -->
+                <input type="hidden" name="submission_text" value="Participated"> <!-- Very limited fucntionality right now but can be updated in future dev -->
+                <button type="submit">Participate</button>
+            </form>
+        </div>
+        {% endfor %}
+    
+    <!-- Footer section -->
+    <footer>
+        <p>Komodo Hub. Protecting Indonesia's Wildlife Together.</p>
+    </footer>
+</body>
+</html>
+
+<!-- *Gavin stops coding here * -->

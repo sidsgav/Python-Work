@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles1.css') }}">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Animals</h2>
+        <ul class="animal-list">
+            {% for animal in animals %}
+                <li>
+                    <a href="#" onclick="showAnimal('{{ animal['SpeciesName'] }}')">{{ animal['SpeciesName'] }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <div class="content">
+        <h1>Animal Information</h1>
+        {% for animal in animals %}
+        <div id="{{ animal['SpeciesName'] }}" class="animal-info">
+            <h2>{{ animal['SpeciesName'] }} ({{ animal['ScientificName'] }})</h2>
+            <p><strong>Status:</strong> {{ animal['ConservationStatus'] }}</p>
+            <p><strong>Population:</strong> {{ animal['Population'] }}</p>
+            <p><strong>Habitat:</strong> {{ animal['Habitat'] }}</p>
+            <p><strong>Threats:</strong> {{ animal['MainThreats'] }}</p>
+            <!-- Use local images -->
+            <img src="{{ url_for('static', filename='images/animals/' + animal['Image']) }}" alt="{{ animal['SpeciesName'] }}">
+            <p>{{ animal['Description'] }}</p>
+            <hr>
+            <h3>Sightings</h3>
+            {% if animal['map_filename'] %}
+                <div class="map-container">
+                    <iframe src="{{ url_for('static', filename=animal['map_filename']) }}" class="map-iframe"></iframe>
+                </div>
+            {% else %}
+                <p>No sightings available for this animal.</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        function showAnimal(speciesName) {
+            // Hide all animal info divs
+            var animalInfos = document.querySelectorAll('.animal-info');
+            animalInfos.forEach(function(info) {
+                info.style.display = 'none';
+            });
+
+            // Show the selected animal info div
+            var selectedAnimal = document.getElementById(speciesName);
+            if (selectedAnimal) {
+                selectedAnimal.style.display = 'block';
+            }
+        }
+
+        // Show the first animal by default when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            var firstAnimal = document.querySelector('.animal-list li a');
+            if (firstAnimal) {
+                showAnimal(firstAnimal.textContent);
+            }
+        });
+    </script>
+</body>
+</html>

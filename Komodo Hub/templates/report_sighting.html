@@ -1,0 +1,78 @@
+<!-- Pradips code-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sighting Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles1.css') }}">
+</head>
+<body class="no-sidebar">
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Error message container -->
+        <div class="error-message margin-bottom">
+            {% if error_message %}
+                {{ error_message }}
+            {% endif %}
+        </div>
+
+        <!-- Form container for reporting a sighting manually -->
+        <div class="form-container centered">
+            <form action="{{ url_for('report_sighting') }}" method="POST">
+                <h2>Report Sighting</h2>
+                <input type="hidden" name="form_type" value="report_sighting">
+                <label for="SpeciesName">Species Name:</label>
+                <select id="SpeciesName" name="SpeciesName" required>
+                    <option value="">Select a Species</option>
+                    {% for animal in animals %}
+                        <option value="{{ animal['SpeciesName'] }}">{{ animal['SpeciesName'] }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="Latitude">Latitude:</label>
+                <input type="number" id="Latitude" name="Latitude" step="any" required>
+                
+                <label for="Longitude">Longitude:</label>
+                <input type="number" id="Longitude" name="Longitude" step="any" required>
+
+                <button type="submit">Report Sighting</button>
+            </form>
+            {% if success_message and form_type == 'report_sighting' %}
+                <div class="success-message">
+                    {{ success_message }}
+                </div><br>
+            {% endif %}
+        </div>
+
+        <!-- Form container for reporting a sighting using geocoder -->
+        <div class="form-container centered">
+            <h2>Report Sighting Using Current Location</h2>
+            <form action="{{ url_for('update_location') }}" method="POST">
+                <input type="hidden" name="form_type" value="update_location">
+                <label for="SpeciesNameUpdate">Species Name:</label>
+                <select id="SpeciesNameUpdate" name="SpeciesName" required>
+                    <option value="">Select a Species</option>
+                    {% for animal in animals %}
+                        <option value="{{ animal['SpeciesName'] }}">{{ animal['SpeciesName'] }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">Use Current Location</button>
+            </form>
+            {% if success_message and form_type == 'update_location' %}
+                <div class="success-message">
+                    {{ success_message }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Map container -->
+        <div class="map-container centered">
+            <h2>Animal Sightings on Map:</h2>
+            <iframe class="map-iframe" src="{{ url_for('static', filename='map.html') }}"></iframe>
+        </div>
+    </div>
+</body>
+</html>

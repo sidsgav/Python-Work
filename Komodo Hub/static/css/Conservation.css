@@ -1,0 +1,245 @@
+/* Troy's code */
+
+/* Navbar Styling */
+html{
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+  
+  }
+  body{
+    margin: 0;
+  }
+  
+  h1{
+    margin-top: -20px;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2c6e49;
+    padding: 15px 20px;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav-links li {
+    display: inline;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropbtn {
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 250px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 5px;
+    text-align: left;
+  }
+  
+  .dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  
+  .dropdown-content a:hover {
+    background: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .mySlides{
+    margin-top: 25px;
+    height: 500px;
+    width: 1000px;
+    border-radius: 10px;
+  }
+  .container{
+    display: flex;
+    flex : 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 90px;
+  }
+  
+  .Profile-Images{
+    height: 330px;
+    width: 330px;
+    border-radius: 10px;
+    overflow-wrap: break-word;
+    
+  }
+  
+  .Profile-Images:hover{
+    height: 340px;
+    width: 340px;
+    cursor: pointer;
+    
+    
+  
+  }
+  .Conservation-Profile-Container{
+    display: flex;
+    gap: 80px;
+    height: 500px;
+  }
+  
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  .column {
+    float: left;
+    width: 32%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+  }
+  
+  .about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+  
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .button:hover {
+    background-color: #555;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }
+  
+  .About-Conservation{
+    display: flex;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 5px;
+    flex-direction: row;
+    
+  
+  
+  }
+  .InformationImg{
+    height: 100%;
+    width: 100%;
+    
+    
+  }
+  
+  .About-Conservation-Text{
+    width: 60%;
+    height: 100%;
+    background-color: rgb(225, 225, 225);
+    overflow: hidden;
+    font-size: 25px;
+  
+  }
+  
+  
+  .Conservation-Img{
+    width: 40%;
+    height: 100%;
+  
+  }
+  .About-Title{
+    margin-left: 10px;
+    font-size: 60px;
+  }
+  
+  .About-Conservation-p{
+    size: 70px;
+  }
+  
+  .About-Conservation-Container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .About-Title{
+    margin-bottom: -10px;
+    margin-top: -30px;
+  }
+  
+  .Profile-Pic-Container{
+    height: 200px;
+  }
+  
+  .Storys-about-conservation-container{
+    display: flex;
+    flex:1;
+    margin-bottom: 15px;
+  }

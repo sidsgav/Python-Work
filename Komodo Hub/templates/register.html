@@ -1,0 +1,52 @@
+<!-- Gavin's Code -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> <!-- Char encoding type-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup | Komodo Hub</title> <!-- Title of page-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> <!--Link to external stylesheet for user-friendly display-->
+</head>
+<body class="register-body"> <!-- Background for Register Page -->
+    <a href="{{ url_for('home') }}" class="home-btn">🏠 Home</a> <!-- Home button for redirect if need be for user-->
+
+    <div class="auth-container"> <!--Main container for auth page - container box-->
+        <div class="auth-box"> 
+            <h2>Signup</h2>
+
+            <!-- Let flash messages pop for user to signal input validation -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-messages">
+                        {% for category, message in messages %}
+                            <div class="flash-message {{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                    {% set messages = [] %}  <!-- Clears the messages after displaying -->
+                {% endif %}
+            {% endwith %}
+
+
+            <form action="{{ url_for('register') }}" method="POST"> <!--Signup form-->
+                <input type="text" id="username" name="username" placeholder="Create a username" required autocomplete="username" required> <!--Required fields-->
+                <input type="password" id="password" name="password" placeholder="Create a password" required autocomplete="new-password" required> <!--Required fields-->
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm password" autocomplete="new-password" required> <!--Required fields-->
+
+                <!-- Account type selection as in their sign in authorisation - diferent capabailties and security -->
+                <label for="accountType">Select Account Type:</label>
+                <select id="accountType" name="accountType" required>
+                    <option value="student">🎓 Student</option> <!--Diff types here-->
+                    <option value="teacher">👩‍🏫 Teacher</option>
+                    <option value="public">🌍 General User</option>
+                </select>
+
+                <button type="submit" class="btn-auth">Signup</button> <!-- Redirect to login for exisiting users - need to ad home redirect too--> 
+            </form>
+            <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p> 
+        </div> 
+    </div>
+
+</body>
+</html>

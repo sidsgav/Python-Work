@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Results Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static' , filename='css/style2.css') }}">
+  <script src="{{ url_for('static', filename='js/chart.umd.js') }}"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <h1>📊 Quiz Results Dashboard</h1>
+
+    <div class="grid">
+      <!-- Current Quiz Summary -->
+      <div class="card">
+        <h2>Latest Quiz</h2>
+        <p class="score">Score: <strong>8 / 10</strong></p>
+        <p class="status pass">Status: Passed ✅</p>
+        <canvas id="quizChart" width="200" height="200"></canvas>
+      </div>
+
+      <!-- Previous Quizzes -->
+      <div class="card">
+        <h2>Previous Quizzes</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Score</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Mar 20</td><td>7 / 10</td><td>✅</td></tr>
+            <tr><td>Mar 15</td><td>5 / 10</td><td>❌</td></tr>
+            <tr><td>Mar 10</td><td>9 / 10</td><td>✅</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Upcoming Quizzes -->
+      <div class="card">
+        <h2>Upcoming Quizzes</h2>
+        <ul class="upcoming">
+          <li>Data Structures – Apr 12</li>
+          <li>OOP Concepts – Apr 16</li>
+          <li>DBMS – Apr 22</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('quizChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Correct', 'Incorrect'],
+        datasets: [{
+          data: [8, 2],
+          backgroundColor: ['#38a169', '#e53e3e'],
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

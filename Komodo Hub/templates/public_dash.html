@@ -1,0 +1,79 @@
+<!-- Gavin's Code -->
+
+<!-- *Gavin begins coding here * -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Public Dashboard | Komodo Hub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">  <!-- Reuse your main stylesheet for styling and make use of code reusability -->
+</head>
+<body class="public-dashboard">
+  <header class="dash-hero">
+    <div class="hero-content">
+      <h1>🌍 Hello, {{ user.username if current_user.is_authenticated else 'Guest' }}!</h1> <!-- Shows users name logged in ('Guest' is placeholder right now due to access grant dashboard setup)-->
+      <p>Discover conservation programs and community contributions.</p>
+      <button id="homeBtn">Back to Home</button> <!-- Back to home redirect same as other dashes -->
+    </div>
+  </header>
+
+  <!-- Main container for all the 'public' dashboard cards -->
+  <section class="dashboard-container">
+
+    <!-- Digital Library Card -->
+    <div class="dashboard-card">
+      <h2>📖 Digital Library</h2>
+      <p>Explore the vast amount of educational materials regarding endangered species.</p>
+      <button onclick="alert('Digital Library feature coming soon!')">Explore Library</button> <!-- Add Hansens Code N/A-->
+    </div>
+
+    <!-- Conservation Programs -->
+    <div class="dashboard-card">
+      <h2>🎯 Conservation Challenges</h2>
+      <p>Participate in challenges to protect Indonesia's wildlife.</p>
+      <a href="{{ url_for('view_challenges') }}" class="btn-auth">View Challenges</a> <!-- I will do this bit soon-->
+    </div>
+
+    <!-- Report a Sighting Card -->
+    <div class="dashboard-card">
+      <h2>📍 Report a Sighting</h2>
+      <p>Help conservation efforts by reporting wildlife sightings.</p>
+      <a href="{{ url_for('report_sighting') }}" class="btn-auth">Report Now</a> <!-- Pradip's stuff-->
+  </div>
+
+    <!-- Endangered Animals - code reuse (same as others) -->
+    <div class="dashboard-card">
+      <h2>🦎 Endangered Animals</h2>
+      <p>Learn more about Indonesia's most endangered species.</p>
+      <a href="{{ url_for('animal_info') }}" class="btn-auth">Learn More</a> <!-- Pradip's redirect here-->
+    </div>
+
+    <!-- Community Contributions -->
+    <div class="dashboard-card">
+      <h2>💡 Community Conservation Contributions</h2>
+      <p>See what local communities have contributed to conservation efforts.</p>
+      <a href="{{ url_for('Conservation') }}" class="btn-auth">Learn More</a> <!-- Pradip's redirect here-->
+    </div> 
+  </section>
+
+  <!-- Footer section to show login/register for guests or logout for logged-in users - test/try option yet - need to mod! -->
+  <footer>
+    {% if current_user.is_authenticated %}
+      <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+      <a href="{{ url_for('login') }}">Login</a> | <a href="{{ url_for('register') }}">Register</a>
+    {% endif %}
+  </footer>
+
+  <!-- Script to handle the 'Back to Home' button click - code reuse as again same as rest -->
+  <script>
+    document.getElementById("homeBtn").addEventListener("click", function() {
+      window.location.href = "{{ url_for('home') }}";
+    });
+  </script>
+</body>
+</html>
+
+<!-- *Gavin stops coding here * -->

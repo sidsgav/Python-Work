@@ -1,0 +1,166 @@
+<!-- Gavin starts coding here -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/Conservation.css') }}">
+  <title>Conservation Page</title>
+</head>
+<body>
+    <!-- Navbar with Dropdown Menu -->
+    <nav class="navbar">
+      <h1 class="logo">🦎 Komodo Hub</h1>
+      <ul class="nav-links">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li class="dropdown"> <!-- List for options in drop-down-->
+              <a href="#" class="dropbtn">Programs ▼</a>
+              <div class="dropdown-content"> <!-- Many more to add - look at interview for further implementation-->
+                  <a href="#">📚 Learning Materials</a>
+                  <a href="#">🌍 Student Progress Report</a>
+                  <a href="#">📍 Report a Sighting</a>
+                  <a href="#">🎮 Interactive Games</a>
+                  <a href="#">🔑 Secure Student Access</a>
+                  <!-- Add more whenever done - aff functionality soon-->
+              </div>
+          </li>
+          <li><a href="{{ url_for('register') }}" class="btn-secondary">Register</a></li> <!-- Access to options[...]-->
+          <li><a href="{{ url_for('login') }}" class="btn-secondary">Login</a></li> 
+      </ul>
+  </nav>
+  <div class="container"> 
+    
+<!-- Gavin stops coding here -->
+
+<!-- Troy starts coding here-->
+
+    <div class="Slide-show">
+      <img class="mySlides" src="{{ url_for('static', filename='images/SlideShowImg1.jpg') }}">
+      <img class="mySlides" src="{{ url_for('static', filename='images/SlideShowImg2.jpg') }}">
+      <img class="mySlides" src="{{ url_for('static', filename='images/SlideShowImg3.jpg') }}">
+    
+    </div>
+   <h1>Storys about conservation</h1>
+    <div class="Conservation-Profile-Container">
+    <div class="Profile-Pic-Container">
+    <img class="Profile-Images" src="{{ url_for('static', filename='images/ProfilePicContainerImg1.jpg') }}">
+    <h2>Agung helping local animals</h2>
+  </div>
+  <div class="Profile-Pic-Container">
+    <img class="Profile-Images" src="{{ url_for('static', filename='images/SlideShowImg2.jpg') }}">
+    <h2>Imana helping convservation </h2>
+    <h2> of local orangutans</h2>
+  </div>
+    <div class="Profile-Pic-Container">
+    <img class="Profile-Images" src="{{ url_for('static', filename='images/SlideShowImg3.jpg') }}">
+    <h2>Bimo feeding local wild animals </h2>
+
+  </div>
+
+
+
+
+
+
+  </div>
+  <h2 class="About-Title"> What is Animal Conservation?</h2>
+  <div class="About-Conservation"> 
+    <div class="Conservation-Img">
+    <img class="InformationImg" src="{{ url_for('static', filename='images/InformationImg.jpg') }}">
+  </div>
+  <div class="About-Conservation-Text">
+   
+   <p>
+    Protecting endangered animals is crucial for maintaining biodiversity and ecosystem balance. You can help by supporting wildlife conservation organizations, adopting sustainable habits, and avoiding products that contribute to habitat destruction. Advocate for stronger laws against poaching and illegal wildlife trade, and spread awareness about the importance of protecting threatened species. Volunteering at wildlife sanctuaries or donating to conservation programs also makes a big difference. Every action counts in ensuring a future for endangered animals.
+  </p>
+  
+  
+
+
+</div>
+
+
+  </div>
+  <h1>How can you help animal conservation in Indonesia?</h1>
+    <div class="Conservation-Profile-Container">
+    <div class="Profile-Pic-Container">
+    <img class="Profile-Images" src="{{ url_for('static', filename='images/InformationImg2.jpg') }}">
+    <h2>Seperating waste products</h2>
+  </div>
+ 
+  <div class="Profile-Pic-Container">
+    <img class="Profile-Images" src="{{ url_for('static', filename='images/InformationImg3.jpg') }}">
+    <h2>Give animal organisations help  </h2>
+    <h2>through Volunteering </h2>
+  </div>
+    <div class="Profile-Pic-Container">
+    <img class="Profile-Images" src="{{ url_for('static', filename='images/InformationImg4.jpg') }}">
+    <h2>Spread awareness of animal  </h2>
+    <h2>conservation </h2>
+    </div>
+    </div>
+
+ 
+
+
+
+  
+  
+  <h2 style="text-align:center">Our Team</h2>
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <img src="{{ url_for('static', filename='images/TeamImg1.jpg') }}" alt="Jane" style="width:100%">
+        <div class="container">
+          <h2>Cahyo Batawiz</h2>
+          <p class="title">CEO & Founder</p>
+          <p>Always happy to help push forward animal conservation in Indonesia</p>
+          <p>Cahyo Batawiz21@outlook.com</p>
+          <p><button class="button">Contact</button></p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="column">
+      <div class="card">
+        <img src="{{ url_for('static', filename='images/TeamImg2.jpg') }}" alt="Mike" style="width:100%">
+        <div class="container">
+          <h2>Aditya Ajartambun</h2>
+          <p class="title">Head of recycling</p>
+          <p>I spearhead for more recycling in Indonesia</p>
+          <p>Aditya Ajartambun@gmail.com</p>
+          <p><button class="button">Contact</button></p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="column">
+      <div class="card">
+        <img src="{{ url_for('static', filename='images/TeamImg3.jpg') }}" alt="John" style="width:100%">
+        <div class="container">
+          <h2>Ayu Babo</h2>
+          <p class="title">Head of Volunteering</p>
+          <p>Manage all Volunteering within Komodo hub, contact me if you want to be involved</p>
+          <p>AyuBabo@icloud.co.uk</p>
+          <p><button class="button">Contact</button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+  </div>
+
+<script src="{{ url_for('static', filename='js/Conservation.js') }}"></script>
+  
+</body>
+</html>
+
+<!-- Troy stops coding here -->

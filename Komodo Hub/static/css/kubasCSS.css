@@ -1,0 +1,114 @@
+/* Styling for student dashboard page - Games and quizzes section - Kuba + Gavin*/
+
+/* Apply a background image for the games and quizzes section */
+.games-quizzes-container {
+    background: url('../images/sumatran_elephant.jpeg') no-repeat center center/cover;
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 40px;
+    text-align: center;
+  }
+  
+  /* General container styling for games */
+  .game-container {
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay for readability */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  /* Styling for headings to ensure visibility */
+  .game-container h1, .game-container h2, .game-container p {
+    color: #ffcc00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Input fields and buttons */
+  input[type="text"], button {
+    font-size: 1.2em;
+    padding: 10px;
+    border-radius: 6px;
+    margin: 10px;
+  }
+  
+  input[type="text"] {
+    width: 80%;
+    border: 2px solid #ffcc00;
+    background: rgba(255, 255, 255, 0.8);
+  }
+  
+  button {
+    background: #ffcc00;
+    color: black;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #ffdb4d;
+  }
+  
+  /* Quiz Container Styling */
+  .quiz-container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  /* Quiz question styles */
+  .quiz-container p {
+    font-size: 1.2em;
+    color: white;
+  }
+  
+  /* Quiz options styling */
+  .quiz-container label {
+    display: block;
+    font-size: 1.1em;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .quiz-container label:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Hangman Game Styling */
+  .hangman-container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  .hangman-container .game-over {
+    color: red;
+    font-size: 20px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .game-container, .quiz-container, .hangman-container {
+      width: 90%;
+      padding: 20px;
+    }
+  }
+  

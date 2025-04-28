@@ -1,0 +1,920 @@
+/* Gavin's Code */
+
+/* General styling for system */
+
+body 
+{
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+  color: #333;
+}
+
+/* Navbar styling used here */
+.navbar 
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Subtle green gradient background */
+  background: linear-gradient(135deg, #2c6e49, #1d4d32);
+  padding: 15px 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+/* Logo and title styling */
+.logo 
+{
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover 
+{
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Navigation links container */
+.nav-links
+{
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0; /* Remove default ul margin */
+  padding: 0; /* Remove default ul padding */
+}
+
+/* Each nav link */
+.nav-links a 
+{
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for nav links */
+.nav-links a:hover 
+{
+  background-color: rgba(255,255,255,0.15);
+}
+
+/* Dropdown styling */
+.dropdown 
+{
+  position: relative;
+}
+
+/* The Programs button in the nav */
+.dropbtn 
+{
+  cursor: pointer;
+}
+
+/* Dropdown content box */
+.dropdown-content 
+{
+  display: none;
+  position: absolute;
+  background: #fff;
+  min-width: 220px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  text-align: left;
+  margin-top: 8px; /* Space below the main nav item */
+}
+
+/* Individual dropdown links */
+.dropdown-content a 
+{
+  color: #333;
+  padding: 12px 16px;
+  display: block;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border-radius: 0; /* Normal links inside the dropdown */
+}
+
+.dropdown-content a:hover 
+{
+  background-color: #eee;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content 
+{
+  display: block;
+}
+
+
+/* Hero - main front section */
+.hero 
+{
+  background: url("../images/javan_rhino.jpeg") no-repeat center center/cover; /* image used - can chnage further down and alignment maybe*/
+  text-align: center;
+  color: white;
+  padding: 120px 20px;
+}
+
+.hero h2 
+{
+  font-size: 2.8em;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero p 
+{
+  font-size: 1.3em;
+}
+
+.btn-primary 
+{
+  background: #1d4d32;
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-size: 1.2em;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover 
+{
+  background: #145225;
+}
+
+/* Features section */
+.features 
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 30px;
+}
+
+.feature-card 
+{
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: 270px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover 
+{
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Centered login page making it user friendly and professional */
+.login-body 
+{
+  display: flex;
+  justify-content: center; /* ^^^ */
+  align-items: center;
+  height: 100vh;
+  background: url("../images/sumatran_tiger.jpg") no-repeat center center/cover; /* image used in backgrounf change in future if want to*/
+}
+
+/* Login box styling and piece alignment*/
+.auth-container 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.auth-box 
+{
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.auth-box h2 
+{
+  margin-bottom: 15px;
+  color: #2c6e49;
+  font-size: 1.8em;
+}
+
+/* Input fields */
+.auth-box input 
+{
+  padding: 12px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+/*Login button */
+.btn-auth 
+{
+  background: #2c6e49;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1em;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-auth:hover 
+{
+  background: #145225;
+}
+
+/* Links */
+.auth-box a 
+{
+  color: #2c6e49;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.auth-box a:hover 
+{
+  text-decoration: underline;
+}
+
+/* Background image for reg page */
+.register-body 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url("../images/javan_eagle.jpg") no-repeat center center/cover; /* Image used for register page body */
+}
+
+/* Centered signup box */
+.auth-container 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* form box styling here */
+.auth-box 
+{
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.auth-box:hover 
+{
+  transform: translateY(-5px);
+}
+
+.auth-box h2 
+{
+  margin-bottom: 15px;
+  color: #2c6e49;
+  font-size: 1.8em;
+}
+
+/* Form styling */
+.auth-box form 
+{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-box input,
+.auth-box select 
+{
+  padding: 12px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+/* Button styling option */
+.btn-auth 
+{
+  background: #2c6e49;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-auth:hover 
+{
+  background: #145225;
+}
+
+/* links */
+.auth-box a 
+{
+  color: #2c6e49;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.auth-box a:hover 
+{
+  text-decoration: underline;
+}
+
+/* About container styling section for info display */
+.about-container 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  max-width: 80%;
+  text-align: center;
+}
+
+.about-box 
+{
+  max-width: 800px;
+}
+
+.about-box h2 
+{
+  color: #2c6e49;
+  font-size: 2em;
+}
+
+.about-box p 
+{
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+/* Display flash messages formally */
+
+.flash-messages 
+{
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.flash-message 
+{
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+/* Different colors for different message types for user understanding */
+.flash-message.success 
+{
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.flash-message.danger 
+{
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.flash-message.warning 
+{
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+}
+
+/* Some styling for home button prompt in certain redirect pages */
+.home-btn 
+{
+  position: absolute;
+  top: 20px; /* Distance from top */
+  left: 20px; /* Distance from left */
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: #4CAF50; /* Green color */
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.home-btn:hover
+{
+  background-color: #45a049; /* A slightly darker green */
+}
+
+.dash-header 
+{
+  background-color: #2c6e49; /* Dark green theme color */
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  margin-bottom: 20px;
+}
+
+.dash-header h1 
+{
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+/* For Student Dashboard Cards */
+.dashboard-container 
+{
+  display: flex; /* Single column flex type */
+  flex-direction: column; /* Vertical stacking used here */
+  align-items: center; /* Center horizontallyy */
+  gap: 30px; /* Space between cards */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* For Home Page Features Grid */
+.features-container 
+{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* Shared card styling */
+.dashboard-card, .feature-card 
+{
+  width: 90%; /* Wider card used here */
+  max-width: 900px; /* Optional max width */
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 auto; /* Ensure it is centered */
+}
+
+.dashboard-card:hover, .feature-card:hover 
+{
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+}
+
+.dashboard-card h2, .feature-card h2 
+{
+  color: #2c6e49;  /* Green theme color */
+  margin-bottom: 20px;
+}
+
+.dashboard-card p, .feature-card p 
+{
+  margin-bottom: 20px;
+}
+
+.btn-auth, .dashboard-card button, .feature-card button 
+{
+  background: #2c6e49; /* Primary green color */
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none; /* For links styled as buttons */
+}
+
+.btn-auth:hover, .dashboard-card button:hover, .feature-card button:hover 
+{
+  background: #145225; /* Darker green on hover */
+}
+
+footer 
+{
+  text-align: center;
+  padding: 20px;
+}
+
+footer a 
+{
+  color: #eff9f3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover 
+{
+  text-decoration: underline;
+}
+
+/* Make the entire page use the bali mynas for scroll and image */
+body 
+{
+  font-family: 'Arial', sans-serif; /* Font styling etc[...] */ 
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background: url("../images/bali_mynas.webp") no-repeat center center fixed;
+  background-size: cover; /* Ensures the image always covers the screen so for user scroll  */
+}
+
+
+/*  dash banner */
+.dashboard-banner 
+{
+  height: 150px; 
+  position: relative;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.2); /* Optional transparent overlay */
+}
+
+/* Banner overlay text stylin */
+.dashboard-banner h2 
+{
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: rgb(15, 1, 1);
+  font-size: 2em;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+
+/* Container for text & button */
+.hero-content 
+{
+  position: relative; /* So it sits above the overlay */
+  color: #fff; /* Choose a visible text here or future change  */
+  text-align: center;
+  padding: 20px; /* Some padding for smaller screens */
+}
+
+/* Hero heading styling for largest title display*/
+.hero-content h1 
+{
+  font-size: 2.5em;
+  margin-bottom: 0.4em;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Hero subheading display content */
+.hero-content p 
+{
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Example button */
+.hero-content button 
+{
+  background: #1d4d32; 
+  color: #f2efef;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hero-content button:hover 
+{
+  background: #e3e8e5;
+}
+
+/* Messages Page Layout */
+.messages-body 
+{
+  margin: 0;
+  padding: 0;
+  background: url("../images/komodo.jpg") no-repeat center center / cover; /* Link to pic used for messages page layout*/
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.messages-container 
+{
+  display: flex; /* 2-column layout: sidebar + thread */
+  max-width: 1200px;
+  margin: 20px auto;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255,255,255,0.9); /* Slightly transparent white */
+  border-radius: 8px;
+}
+
+/* Sidebar for conversation list */
+.messages-sidebar 
+{
+  width: 250px;
+  background: #f7f7f7;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.messages-sidebar h2 
+{
+  margin-top: 0;
+}
+
+.conversation-list 
+{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.conversation-list li 
+{
+  margin-bottom: 10px;
+}
+
+.conversation-list a 
+{
+  text-decoration: none;
+  color: #2c6e49;
+  transition: color 0.3s;
+}
+
+.conversation-list a:hover 
+{
+  color: #145225;
+}
+
+/* Main thread area */
+.messages-thread 
+{
+  flex: 1; /* Takes remaining space */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form to send a new message */
+.send-message-form 
+{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.send-message-form label 
+{
+  font-weight: bold;
+}
+
+.send-message-form textarea 
+{
+  width: 100%;
+  min-height: 80px;
+}
+
+/* Messages listing */
+.message-list 
+{
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1; /* So it stretches in the column */
+  overflow-y: auto; /* If many messages, scroll inside */
+  max-height: 400px; /* Adjust as needed */
+}
+
+.message-item 
+{
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  background: #f4f4f4;
+}
+
+.message-item.outgoing 
+{
+  background: #d4edda; /* Slightly green for outgoing message types */
+}
+
+.message-item.incoming 
+{
+  background: #f8d7da; /* Slightly red for incoming message types */
+}
+
+.message-meta 
+{
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.message-content 
+{
+  font-size: 1em;
+  color: #333;
+}
+
+
+/* Conservation challenges and leaderboard - overall public dash styling */
+
+/* Apply a different background image ti change it up */
+.public-dashboard, .challenges-container, .leaderboard-container {
+  background: url('../images/banteng.jpg') no-repeat center center/cover;
+  font-family: Arial, sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Ensure text stands out against the background */
+.public-dashboard h1, .public-dashboard h2, .public-dashboard p,
+.challenges-container h1, .challenges-container h2, .challenges-container p,
+.leaderboard-container h1, .leaderboard-container h2, .leaderboard-container p {
+  color: rgb(62, 131, 26);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Styling for the conservation challenges section */
+.challenges-container {
+  text-align: center;
+  padding: 50px;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay for easier readability */
+  border-radius: 10px;
+  margin: 50px auto;
+  max-width: 900px;
+}
+
+/* Individual challenge card styles */
+.challenge-card {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.challenge-card button {
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+
+.challenge-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.challenge-card h2 {
+  color: #ffcc00;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Leaderboard container styling */
+.leaderboard-container {
+  text-align: center;
+  padding: 50px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  margin: 50px auto;
+  max-width: 900px;
+}
+
+/* Table styling for leaderboard */
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.leaderboard-table th, .leaderboard-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.leaderboard-table th {
+  background: #ffcc00;
+  color: black;
+  font-weight: bold;
+}
+
+.leaderboard-table tr:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.progress-bar-container {
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 20px;
+  margin-top: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4caf50;
+  text-align: right;
+  line-height: 20px;
+  color: white;
+  padding-right: 5px;
+  border-radius: 10px 0 0 10px;
+  transition: width 0.4s ease-in-out;
+}
+
+
+/* Footer styling to seperate good and nicely  */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px)
+{
+  .dashboard-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dashboard-card {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Mobile responsiveness if need to accomodate public users in future  */
+@media screen and (max-width: 768px) 
+{
+  .navbar 
+  {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links 
+  {
+    flex-direction: column;
+  }
+
+  .features 
+  {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .auth-container 
+  {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero 
+  {
+    padding: 80px 20px;
+  }
+}

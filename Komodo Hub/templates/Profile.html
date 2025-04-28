@@ -1,0 +1,100 @@
+<!---TROY KENNETH MUYOBO CODE -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/Profile.css') }}">
+
+  <title>Profile
+  </title>
+</head>
+<body>
+   <!-- Navbar with Dropdown Menu -->
+   <nav class="navbar">
+    <h1 class="logo">🦎 Komodo Hub</h1>
+    <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li class="dropdown"> <!-- List for options in drop-down-->
+            <a href="#" class="dropbtn">Programs ▼</a>
+            <div class="dropdown-content"> <!-- Many more to add - look at interview for further implementation-->
+                <a href="#">📚 Learning Materials</a>
+                <a href="#">🌍 Student Progress Report</a>
+                <a href="#">📍 Report a Sighting</a>
+                <a href="#">🎮 Interactive Games</a>
+                <a href="#">🔑 Secure Student Access</a>
+                <!-- Add more whenever done - aff functionality soon-->
+            </div>
+        </li>
+        <li><a href="{{ url_for('register') }}" class="btn-secondary">Register</a></li> <!-- Access to options[...]-->
+        <li><a href="{{ url_for('login') }}" class="btn-secondary">Login</a></li> 
+    </ul>
+</nav>
+
+   
+
+<div class="container">
+  
+  <div class="Profile-Container">
+  <div class="Avatar-Container">
+    <div class="Avatar-Image"></div>
+    
+    <div class="DropDownDiv">
+      <div class="dropdown">
+        <button class="dropbtn-2">Styles</a>
+        <div class="dropdown-content"> 
+            <a href="#" onclick="getAvatar('bottts')">botts</a>
+            <a href="#" onclick="getAvatar('pixel-art')"> Pixel-art</a>
+            <a href="#" onclick="getAvatar('adventurer-neutral')">adventurer-neutral</a>
+            <a href="#" onclick="getAvatar('dylan')">dylan</a>
+            <a href="#" onclick="getAvatar('croodles')"> Croodles</a>
+            <a href="#" onclick="getAvatar('big-ears-neutral')"> big-ears-neutral</a>
+            <a href="#" onclick="getAvatar('fun-emoji')">fun-emoji</a>
+          
+        </div>
+      </div>
+      </div>
+  </div>
+  
+
+
+<div class="Profile-UserName-Container"> 
+
+  
+
+<div class="Username-Container"><h2>{{ user.username}}</h2> </div>
+<div class="Account-Type"><h1>{{user.accountType}}</h1></div>
+
+<div class="Description-Container">
+<div class="Description"></div>
+
+</div>
+
+</div>
+
+
+
+</div>
+<div class="changes-container">
+<div class="Description-input">
+<input type="text" class="Description-text-box"  placeholder="Describe yourself">
+<button class="Description-button">Add to your Profile</button>
+</div>
+
+
+<div class="Description-input">
+<input type="text" class="Change-Username"  placeholder="Change your username?">
+  <button class="Change-input-button">Change your username</button>
+
+
+</div>
+</div>
+
+
+</body>
+</html>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+

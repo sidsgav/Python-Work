@@ -1,0 +1,190 @@
+<!-- Kuba starts coding here -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game Library | Komodo Hub</title>
+  <style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #1e1e2f;
+        color: #ffffff;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #282c3f;
+        padding: 1rem 2rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        color: #61dafb;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links li {
+        margin-left: 20px;
+        position: relative;
+    }
+
+    .nav-links a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 8px 12px;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        background-color: #3c3f58;
+        border-radius: 4px;
+    }
+
+    .btn-secondary {
+        background-color: #61dafb;
+        color: #1e1e2f !important;
+        border-radius: 4px;
+        padding: 8px 14px;
+        font-weight: bold;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        background-color: #2e2e3e;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        min-width: 200px;
+        z-index: 1;
+        border-radius: 6px;
+    }
+
+    .dropdown-content a {
+        display: block;
+        padding: 10px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #44475c;
+    }
+
+    /* Main content */
+    .container {
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    .container h1 {
+        text-align: center;
+        margin: 40px auto;
+        font-size: 3em;
+        margin-bottom: 40px;
+        color: #61dafb;
+    }
+
+    .game-list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .game-card {
+        background-color: #2e2e3e;
+        padding: 20px;
+        border-radius: 12px;
+        width: 250px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        transition: transform 0.2s ease;
+    }
+
+    .game-card:hover {
+        transform: scale(1.05);
+    }
+
+    .game-card h2 {
+        margin-bottom: 15px;
+    }
+
+    .game-card a {
+        display: inline-block;
+        margin-top: 10px;
+        color: #61dafb;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .game-card a:hover {
+        text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation bar -->
+  <nav class="navbar">
+    <a href="#" class="logo">🦎 Komodo Hub</a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Programs ▼</a>
+        <div class="dropdown-content">
+          <a href="#">📚 Learning Materials</a>
+          <a href="#">🌍 Student Progress Report</a>
+          <a href="#">📍 Report a Sighting</a>
+          <a href="#">🎮 Interactive Games</a>
+          <a href="#">🔑 Secure Student Access</a>
+        </div>
+      </li>
+      <li><a href="#" class="btn-secondary">Register</a></li>
+      <li><a href="#" class="btn-secondary">Login</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+  <h1>🎮 Interactive Games Section</h1>
+
+  <div class="game-list">
+    <div class="game-card">
+      <h2>Word Scramble</h2>
+      <a href="scramble.html" target="_blank">Play Now</a>
+    </div>
+    <div class="game-card">
+      <h2>Komodo Quiz</h2>
+      <a href="quiz.html" target="_blank">Play Now</a>
+    </div>
+    <div class="game-card">
+      <h2>Hangman Game</h2>
+      <a href="base.html" target="_blank">Play Now</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+<!-- Kuba stops coding here -->

@@ -1,0 +1,66 @@
+<!-- Gavin's Code -->
+
+<!-- *Gavin begins coding here* -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metadata & Stylesheet Linking -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conservation Leaderboard | Komodo Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="logo">🐉 Komodo Hub</a>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('view_challenges') }}">Challenges</a></li>
+            <li><a href="{{ url_for('view_leaderboard') }}" class="active">Leaderboard</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Leaderboard Section -->
+    <section class="leaderboard-container">
+        <h1>🏆 Conservation Leaderboard</h1>
+        <p>A thank you recognition to the top contributors dedicated to protecting Indonesia's wildlife.</p>
+        
+        <!-- Leaderboard Table -->
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>Posiition</th> <!-- Column for position of specific individual -->
+                    <th>Username</th> <!-- Column for usernames of participants -->
+                    <th>Contributions</th> <!-- Column for the number of contributions -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop through the leaderboard data dynamically from backend -->
+                {% for user in leaderboard %}
+                <tr>
+                    <td>{{ loop.index }}</td> <!-- Position number based on iteration -->
+                    <td>{{ user.username }}</td> <!-- Display username of contributor -->
+                    <td>{{ user.contributions }}</td> <!-- Show total contributions -->
+                </tr>
+                {% else %}
+                <!-- If no leaderboard data available, show this message -->
+                <tr>
+                    <td colspan="3">No contributions recorded yet.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>Komodo Hub. Protecting Indonesia's Wildlife Together.</p>
+    </footer>
+</body>
+</html>
+
+<!-- *Gavin stops coding here* -->
